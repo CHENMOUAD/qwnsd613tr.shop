@@ -12,8 +12,29 @@
 </script>
 <link rel="stylesheet" href="css/u7.css"> 
 
+   <!-- Event snippet for 614USA conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16985390246/y_UlCILVzdoaEKb5oaM_',
+      'value': 1.0,
+      'currency': 'USD',
+      'transaction_id': '',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+   
 <script>
    function redirectToWhatsApp() {
+      gtag_report_conversion();
             window.open('https://api.whatsapp.com/send/?phone=13477298979&text=Hello%2C%20I%20would%20like%20to%20get%20your%20AI%20stock%20selection%20report', '_blank');
         }
 </script>
